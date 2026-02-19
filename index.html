@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peak Moments | Maternity, Family & Branding Photography in Sri Lanka • Negombo</title>
+    <meta name="description" content="Professional maternity, family, personal branding, birthday & lifestyle photography in Sri Lanka. Based in Negombo/Polgasovita. Real moments captured beautifully. WhatsApp: 076 678 2913">
+    <meta name="keywords" content="maternity photography Sri Lanka, family photoshoot Negombo, personal branding photography Colombo, birthday photography Sri Lanka, lifestyle photographer Negombo, Peak Moments Studio">
+    <link rel="canonical" href="https://shavindur.github.io/PM/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Peak Moments | Best Photography Studio in Sri Lanka">
+    <meta property="og:description" content="Maternity, Family, Branding & Birthday Photography - Negombo & Colombo">
+    <meta property="og:image" content="https://shavindur.github.io/PM/featured/1.jpg">
+    <meta property="og:url" content="https://shavindur.github.io/PM/">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo/Peak moments logo.png" alt="Peak Moments Studio Logo" onerror="this.src='https://via.placeholder.com/36'">
+            <span>Peak Moments</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-sun" id="themeIcon"></i>
+        </button>
+    </header>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/+94766782913?text=Hi%20Peak%20Moments!%20I%27m%20interested%20in%20a%20photoshoot" class="whatsapp-float" target="_blank" aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" data-page="home"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#" class="nav-item" data-page="portfolio"><i class="fas fa-images"></i><span>Portfolio</span></a>
+        <a href="#" class="nav-item" data-page="about"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <a href="#" class="nav-item" data-page="contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    </nav>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div id="home" class="page-section active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Capturing Moments</h1>
+                    <p>Professional lifestyle photography in Sri Lanka</p>
+                    <div>
+                        <button class="btn btn-primary" onclick="showPage('portfolio')">View Portfolio</button>
+                        <button class="btn btn-outline" onclick="showPage('contact')">Contact Us</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container">
+                <div class="section-header">
+                    <h2>Featured Work</h2>
+                    <p>Recent favorites</p>
+                </div>
+                <div class="grid-2" id="home-featured"><div class="loading">Loading...</div></div>
+            </section>
+
+            <section class="container">
+                <div class="section-header">
+                    <h2>Services</h2>
+                    <p>What we offer</p>
+                </div>
+                <div class="categories">
+                    <div class="category-item">
+                        <i class="fas fa-baby"></i>
+                        <h3>Maternity</h3>
+                        <p>New beginnings</p>
+                        <a href="#" class="category-link" onclick="showPortfolioCategory('maternity'); return false;">View →</a>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Branding</h3>
+                        <p>Personal & business</p>
+                        <a href="#" class="category-link" onclick="showPortfolioCategory('branding'); return false;">View →</a>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>Birthdays</h3>
+                        <p>Celebrations</p>
+                        <a href="#" class="category-link" onclick="showPortfolioCategory('birthdays'); return false;">View →</a>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Family</h3>
+                        <p>Love & connection</p>
+                        <a href="#" class="category-link" onclick="showPortfolioCategory('family'); return false;">View →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PORTFOLIO PAGE -->
+        <div id="portfolio" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Portfolio</h2>
+                    <p>Browse our collections</p>
+                </div>
+                <div class="search-wrapper">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search photos...">
+                    </div>
+                </div>
+                <div class="albums-scroll" id="albumChips"></div>
+                <div class="photo-grid" id="portfolio-grid">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page-section">
+            <div class="container">
+                <div class="about-section">
+                    <img src="logo/Peak moments logo.png" alt="Logo" class="about-logo" onerror="this.style.display='none'">
+                    <div class="about-text">
+                        <h2>About Us</h2>
+                        <p class="about-tagline" style="color: var(--primary); font-weight: 500; margin-bottom: 16px;">Capturing the Moments You Lived, But Might Have Missed.</p>
+                        <p style="margin-bottom: 16px;">We believe that lifestyle photography is about real moments that are honest, emotional, and beautifully lived.</p>
+                        <p style="margin-bottom: 24px;">From intimate personal sessions to expressive lifestyle narratives, our approach is rooted in creativity and intention.</p>
+                    </div>
+                    <h3 style="margin: 32px 0 16px;">What Clients Say</h3>
+                    <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>"Rumesh captured the essence of our maternity journey beautifully. The photos are timeless treasures we'll cherish forever."</p><cite>— Sanjala</cite></div>
+                    <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>"Amazing personal branding shoot! Professional, creative, and the results exceeded our expectations."</p><cite>— Senuri</cite></div>
+                    <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>"Wonderful family session. Rumesh made us feel so comfortable and the photos are absolutely stunning."</p><cite>— Tharuka</cite></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i><div><h3>WhatsApp</h3><a href="https://wa.me/+94766782913">076 678 2913</a></div></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><div><h3>Email</h3><a href="mailto:peakmomentsevents@gmail.com">peakmomentsevents@gmail.com</a></div></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h3>Address</h3><a href="https://maps.app.goo.gl/pBpgkr2SLqU1BCiDA" target="_blank">Polgasovita, Sri Lanka</a></div></div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/peakmomentslifestyle/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100069819850859" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@peakmomentslifestyle" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@peakmomentsevents" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="contact-card" style="margin-top: 24px;">
+                    <h3 style="margin-bottom: 16px;">Send a Message</h3>
+                    <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! We\'ll contact you soon.');">
+                        <input type="text" placeholder="Your Name" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);">
+                        <input type="email" placeholder="Your Email" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);">
+                        <textarea placeholder="Your Message" rows="4" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

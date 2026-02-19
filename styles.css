@@ -1,0 +1,207 @@
+/* ===== PEAK MOMENTS STUDIO - CLEAN CSS ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary: #60af86;
+    --primary-dark: #4e8f6c;
+    --bg: #ffffff;
+    --text: #222222;
+    --text-light: #666666;
+    --border: #e0e0e0;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.dark-mode {
+    --primary: #7acf9c;
+    --primary-dark: #60af86;
+    --bg: #1a1a1a;
+    --text: #ffffff;
+    --text-light: #cccccc;
+    --border: #333333;
+    --card-bg: #2a2a2a;
+    --shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
+    padding-bottom: 80px;
+}
+
+/* All your original styles */
+.container { padding: 0 16px; max-width: 600px; margin: 0 auto; }
+.header { position: sticky; top: 0; background: var(--bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); z-index: 100; backdrop-filter: blur(10px); background: rgba(var(--bg-rgb), 0.95); }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo img { width: 36px; height: auto; }
+.logo span { font-weight: 700; color: var(--primary); }
+.theme-toggle { background: none; border: none; font-size: 1.4rem; color: var(--text); cursor: pointer; padding: 8px; }
+
+.hero { padding: 80px 0; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('featured/1.jpg'); background-size: cover; background-position: center; color: white; }
+.hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; color: white; }
+.hero p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+
+.btn { display: inline-block; padding: 12px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s; margin: 4px; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline { border: 2px solid white; color: white; background: transparent; }
+.btn-outline:hover { background: white; color: var(--primary); }
+
+.section-header { padding: 24px 0 16px; }
+.section-header h2 { font-size: 1.8rem; font-weight: 700; }
+.section-header p { color: var(--text-light); font-size: 1rem; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.photo-card { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; background: var(--border); box-shadow: var(--shadow); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.photo-card:active img { transform: scale(1.05); }
+.photo-card .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: white; padding: 12px 8px 8px; font-size: 0.85rem; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+.photo-card:active .caption { opacity: 1; }
+
+.categories { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.category-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 12px; text-align: center; }
+.category-item i { font-size: 2rem; color: var(--primary); margin-bottom: 8px; }
+.category-item h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.category-item p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px; }
+.category-link { color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+
+.albums-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 8px 0 16px; scrollbar-width: none; }
+.albums-scroll::-webkit-scrollbar { display: none; }
+.album-chip { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; padding: 10px 20px; white-space: nowrap; font-weight: 500; box-shadow: var(--shadow); cursor: pointer; }
+.album-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Search Bar - Always Sticky in Portfolio (hide නොවෙන්න) */
+.search-wrapper {
+    position: sticky;
+    top: 0;                    /* Header hide වුණාට පස්සේත් top එකේම තියෙන්න */
+    background: var(--bg);
+    padding: 12px 0;
+    z-index: 95;               /* Header එකට වඩා උඩින් */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);   /* ටිකක් shadow දාලා පැහැදිලි කරන්න */
+    transition: all 0.3s;
+}
+
+/* Dark mode එකටත් ගැලපෙන්න */
+body.dark-mode .search-wrapper {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.search-box { display: flex; align-items: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; padding: 8px 16px; }
+.search-box i { color: var(--text-light); margin-right: 8px; }
+.search-box input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-size: 1rem; }
+
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 16px; }
+
+.about-section { padding: 24px 0; }
+.about-logo { width: 120px; margin: 0 auto 20px; display: block; }
+.about-text { text-align: center; }
+.about-text h2 { font-size: 2rem; margin-bottom: 16px; }
+.testimonial-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+.testimonial-card i { color: var(--primary); opacity: 0.5; margin-bottom: 8px; }
+.testimonial-card cite { display: block; text-align: right; color: var(--primary); margin-top: 8px; font-weight: 600; }
+
+.contact-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
+.contact-item a { color: var(--text); text-decoration: none; }
+.contact-item a:hover { color: var(--primary); }
+.social-icons { display: flex; gap: 20px; justify-content: center; margin: 24px 0; }
+.social-icons a { color: var(--text); font-size: 1.8rem; }
+.social-icons a:hover { color: var(--primary); }
+
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 10px 0; z-index: 200; backdrop-filter: blur(10px); }
+.nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-light); text-decoration: none; font-size: 0.8rem; }
+.nav-item i { font-size: 1.4rem; margin-bottom: 4px; }
+.nav-item.active { color: var(--primary); }
+
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 1000; flex-direction: column; }
+.lightbox img { max-width: 95%; max-height: 70vh; border-radius: 8px; }
+.lightbox-caption { margin-top: 12px; color: white; background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 30px; font-size: 0.95rem; }
+.lightbox-close { position: absolute; top: 20px; right: 20px; font-size: 2.5rem; color: white; cursor: pointer; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: background 0.3s; }
+.lightbox-nav:hover { background: var(--primary); }
+.lightbox-prev { left: 10px; }
+.lightbox-next { right: 10px; }
+
+.page-section { display: none; }
+.page-section.active { display: block; }
+.loading { text-align: center; padding: 40px; color: var(--text-light); }
+
+.top-btn { position: fixed; bottom: 80px; right: 20px; background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 1.5rem; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); cursor: pointer; z-index: 300; transition: all 0.3s; }
+.top-btn:hover { background: var(--primary-dark); transform: scale(1.1); }
+body.portfolio-active .top-btn { display: flex; }
+
+/* Professional Additions */
+.whatsapp-float {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 300;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.15); }
+
+/* Desktop Responsive */
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: repeat(3, 1fr); }
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .container { max-width: 1200px; padding: 0 32px; }
+}
+@media (min-width: 1024px) {
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .hero h1 { font-size: 3rem; }
+}
+
+/* Top Header Hide on Scroll Down */
+.header {
+    transition: transform 0.4s ease-in-out;
+}
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+/* Back to Top Button - CENTERED (portfolio එකේ medata) */
+.top-btn {
+    position: fixed;
+    bottom: 80px;           /* WhatsApp එකට උඩින් */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 300;
+}
+.top-btn:hover {
+    background: var(--primary-dark);
+    transform: translateX(-50%) scale(1.1);
+}
+body.portfolio-active .top-btn {
+    display: flex;
+}
+
+/* WhatsApp button එක තවත් උඩට ගන්න (overlap නොවෙන්න) */
+.whatsapp-float {
+    bottom: 80px;   /* ඔයාට ඕනෙනම් 120px කරන්න */
+}
